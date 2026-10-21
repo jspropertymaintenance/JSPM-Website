@@ -21,11 +21,6 @@ export default function Header() {
         <div className="header__inner">
           <Link href="/" className="brand" aria-label={`${site.name} home`}>
             <img src="/logo-light.png" alt="" width={429} height={234} />
-            <span className="brand__name">
-              JS Property
-              <br />
-              Maintenance
-            </span>
           </Link>
 
           <nav className="nav" aria-label="Main">
