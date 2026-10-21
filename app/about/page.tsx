@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
-import { ArrowIcon, CheckIcon } from "@/components/Icons";
+import { ArrowIcon } from "@/components/Icons";
+import TradesCarousel from "@/components/TradesCarousel";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +11,15 @@ export const metadata: Metadata = {
   description: "Planned and reactive property maintenance across Teesside and the North East, with every trade through one point of contact.",
 };
 
-const trades = ["Joinery", "Plumbing", "Electrics", "Decorating", "Repairs", "Kitchens", "Bathrooms"];
+const trades = [
+  { title: "Joinery", text: "Doors, locks, skirting, architraves and joinery repairs." },
+  { title: "Plumbing", text: "Leaks, taps, toilets and plumbing faults, fixed fast." },
+  { title: "Electrics", text: "Fault finding, sockets, lighting and EICR remedial work." },
+  { title: "Decorating", text: "Interior and exterior decorating, from prep to finish." },
+  { title: "Repairs", text: "Reactive and planned repairs across every part of the property." },
+  { title: "Kitchens", text: "Kitchen upgrades, repairs and fitting." },
+  { title: "Bathrooms", text: "Bathroom upgrades, installations and resealing." },
+];
 
 export default function About() {
   return (
@@ -39,16 +48,7 @@ export default function About() {
               </Link>
             </div>
           </div>
-          <div className="card">
-            <h3>Trades we coordinate</h3>
-            <ul className="contact-list" style={{ gap: "0.6rem", marginTop: "1rem" }}>
-              {trades.map((t) => (
-                <li key={t} style={{ display: "flex", gap: "0.6rem", alignItems: "center" }}>
-                  <CheckIcon className="" /> {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <TradesCarousel title="Trades we coordinate" slides={trades} />
         </div>
       </section>
 

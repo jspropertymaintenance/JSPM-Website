@@ -846,3 +846,121 @@ p {
     transition: none !important;
   }
 }
+
+/* Trades carousel (about page) */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+.carousel__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.carousel__head h3 {
+  margin: 0;
+}
+.carousel__count {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted-on-ink);
+  font-variant-numeric: tabular-nums;
+}
+.carousel__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+.carousel__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  min-height: 9.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--ink-line);
+  border-bottom: 1px solid var(--ink-line);
+}
+.card .carousel__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin: 0 0 0.6rem;
+}
+.carousel__text {
+  max-width: 34ch;
+}
+.carousel__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.carousel__dots {
+  display: flex;
+  min-width: 0;
+}
+.carousel__dot {
+  width: 22px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel__dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--paper);
+  opacity: 0.3;
+  transition: width 0.25s, opacity 0.25s;
+}
+.carousel__dot[aria-current="true"]::before {
+  width: 20px;
+  opacity: 1;
+}
+.carousel__arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+.carousel__arrows button {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--ink-line);
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.carousel__arrows button:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+.carousel__arrows svg {
+  width: 18px;
+  height: 18px;
+}
+.carousel__arrows .flip {
+  transform: scaleX(-1);
+}
