@@ -29,7 +29,7 @@ export default function Home() {
           <div className="facts">
             <div>
               <strong>Every trade</strong>
-              <span>Plumbing to flooring, one contact</span>
+              <span>One point of contact</span>
             </div>
             <div>
               <strong>Planned &amp; reactive</strong>
