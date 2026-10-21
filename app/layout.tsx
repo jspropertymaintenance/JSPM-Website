@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-// Montserrat for headings and titles. Body text uses Mont (self-hosted, see
-// globals.css) with Inter as the fallback until the Mont files are added.
+// Montserrat for headings and titles, Outfit for body text.
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", display: "swap" });
 
 export const metadata: Metadata = {
@@ -52,7 +51,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="en-GB" className={`${outfit.variable} ${montserrat.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content
