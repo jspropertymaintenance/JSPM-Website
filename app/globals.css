@@ -370,36 +370,11 @@ p {
   position: relative;
   z-index: 1;
 }
-.hero__grid {
-  display: grid;
-  gap: 3rem;
-  align-items: center;
-}
 .hero h1 {
   margin-bottom: 1.5rem;
 }
 .hero .lead {
   margin-bottom: 2.25rem;
-}
-.hero__mark {
-  display: none;
-}
-@media (min-width: 960px) {
-  .hero__grid {
-    grid-template-columns: 1.4fr 1fr;
-  }
-  .hero__mark {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 1;
-    border: 1px solid var(--ink-line);
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--ink-soft) 0%, var(--ink) 70%);
-  }
-  .hero__mark img {
-    width: 62%;
-  }
 }
 
 .page-hero {
