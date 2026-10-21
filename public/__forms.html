@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Forms</title></head>
+<body>
+<!--
+  Netlify Forms definitions. Netlify scans this file at deploy time to register
+  each form and its fields; the React forms post their submissions here.
+  Keep the field names in sync with lib/forms.ts.
+-->
+<form name="quote" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="quote">
+  <input name="bot-field">
+  <input name="name"><input name="phone"><input name="email"><input name="postcode">
+  <select name="client_type"></select><select name="service"></select><select name="urgency"></select>
+  <textarea name="message"></textarea>
+</form>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="contact">
+  <input name="bot-field">
+  <input name="name"><input name="phone"><input name="email">
+  <textarea name="message"></textarea>
+</form>
+<form name="work-with-us" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="work-with-us">
+  <input name="bot-field">
+  <input name="name"><input name="business"><input name="email"><input name="phone">
+  <select name="trade"></select><select name="experience"></select>
+  <input name="areas">
+  <textarea name="message"></textarea>
+</form>
+<form name="referral" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="referral">
+  <input name="bot-field">
+  <input name="your_name"><input name="your_email"><input name="referral_name"><input name="referral_contact">
+  <textarea name="message"></textarea>
+</form>
+</body>
+</html>
