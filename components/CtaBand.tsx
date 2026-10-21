@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import { PhoneIcon } from "./Icons";
 
 export default function CtaBand({
-  title = "Ready to get it sorted?",
+  title = "Ready to get started?",
   text = "Tell us about the job and we'll come back with a clear price and next steps. Urgent? Give us a call.",
 }: {
   title?: string;
