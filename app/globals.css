@@ -1,3 +1,28 @@
+/* Mont is a licensed Fontfabric typeface, so it is self-hosted. Place the
+   licensed webfont files in public/fonts/ with these names to enable it;
+   until then text falls back to Inter. */
+@font-face {
+  font-family: "Mont";
+  src: local("Mont Regular"), local("Mont-Regular"), url("/fonts/Mont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mont";
+  src: local("Mont SemiBold"), local("Mont-SemiBold"), url("/fonts/Mont-SemiBold.woff2") format("woff2");
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mont";
+  src: local("Mont Bold"), local("Mont-Bold"), url("/fonts/Mont-Bold.woff2") format("woff2");
+  font-weight: 700 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: #121212;
   --paper: #dcdcdc;
@@ -8,8 +33,8 @@
   --muted-on-paper: rgba(18, 18, 18, 0.7);
   --radius: 14px;
   --max: 1180px;
-  --font-body: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-head: var(--font-archivo), var(--font-body);
+  --font-body: "Mont", var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: var(--font-montserrat), var(--font-body);
 }
 
 *,
