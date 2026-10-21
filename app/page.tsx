@@ -10,27 +10,20 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container">
-          <div className="hero__grid">
-            <div>
-              <span className="eyebrow">Teesside &amp; the North East</span>
-              <h1>JS Property Maintenance</h1>
-              <p className="lead">
-                One local team covering every trade. Planned, reactive and managed
-                maintenance for landlords, letting agents, serviced accommodation
-                and homeowners.
-              </p>
-              <div className="btn-row">
-                <Link href="/request-a-quote/" className="btn btn--solid">
-                  Request a quote <ArrowIcon />
-                </Link>
-                <a href={site.phoneHref} className="btn btn--ghost">
-                  <PhoneIcon /> Call {site.phone}
-                </a>
-              </div>
-            </div>
-            <div className="hero__mark" aria-hidden="true">
-              <img src="/logo-light.png" alt="" width={429} height={234} />
-            </div>
+          <span className="eyebrow">Teesside &amp; the North East</span>
+          <h1>JS Property Maintenance</h1>
+          <p className="lead">
+            One local team covering every trade. Planned, reactive and managed
+            maintenance for landlords, letting agents, serviced accommodation
+            and homeowners.
+          </p>
+          <div className="btn-row">
+            <Link href="/request-a-quote/" className="btn btn--solid">
+              Request a quote <ArrowIcon />
+            </Link>
+            <a href={site.phoneHref} className="btn btn--ghost">
+              <PhoneIcon /> Call {site.phone}
+            </a>
           </div>
 
           <div className="facts">
