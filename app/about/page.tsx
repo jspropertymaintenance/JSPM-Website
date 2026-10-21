@@ -58,7 +58,10 @@ export default function About() {
             <span className="eyebrow">Where we cover</span>
             <h2>Teesside and surrounding areas</h2>
             <p className="lead">
-              From terraces and student lets to new-build homes and full portfolios.
+              Based locally and working across Teesside and the North East every
+              day, we know the area&apos;s housing stock, from Victorian terraces to
+              new builds. Our trades are never far from your property, so jobs keep
+              moving.
             </p>
           </div>
           <ul className="areas">
