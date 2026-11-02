@@ -80,33 +80,30 @@ export const serviceCategories = [
     text: "Routine upkeep that heads off problems, extends the life of your assets and keeps properties compliant.",
     items: [
       "Scheduled minor repairs",
-      "Resealing and cosmetic upkeep",
-      "Decorating refreshes",
-      "Routine checks and adjustments",
+      "Cosmetic upkeep",
+      "Property refreshes",
+      "End-of-tenancy projects",
     ],
-    status: "available" as const,
   },
   {
     title: "Reactive repairs",
     text: "A fast, multi-trade response to faults, breakdowns and urgent repairs.",
     items: [
-      "Plumbing leaks and faults",
-      "Electrical issues and EICR remedials",
-      "Joinery repairs",
-      "Damp and plastering fixes",
+      "Leaks and faults",
+      "Property remedials",
+      "Emergency repairs",
+      "Urgent call-outs",
     ],
-    status: "available" as const,
   },
   {
     title: "Managed maintenance",
     text: "A structured monthly model for landlords, agents and serviced accommodation operators.",
     items: [
-      "Monthly retainer plans",
+      "Routine upkeep",
       "Turnkey service",
       "Compliance checks",
       "Full reporting and coordination",
     ],
-    status: "soon" as const,
   },
 ];
 
