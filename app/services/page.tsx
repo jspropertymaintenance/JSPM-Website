@@ -14,8 +14,8 @@ export default function Services() {
   return (
     <>
       <PageHero eyebrow="Services" title="Everything your property needs">
-        Planned upkeep, fast reactive repairs and, soon, fully managed maintenance,
-        all delivered by one coordinated team.
+        Planned upkeep, fast reactive repairs and fully managed maintenance, all
+        delivered by one coordinated team.
       </PageHero>
 
       <section className="section">
@@ -23,7 +23,6 @@ export default function Services() {
           <div className="grid grid--3">
             {serviceCategories.map((c) => (
               <div className="card card--feature" key={c.title}>
-                {c.status === "soon" && <span className="badge">Coming soon</span>}
                 <h3 style={{ fontSize: "1.6rem" }}>{c.title}</h3>
                 <p>{c.text}</p>
                 <ul>
@@ -33,15 +32,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                {c.status === "available" ? (
-                  <Link href="/request-a-quote/" className="btn btn--ghost">
-                    Get a quote
-                  </Link>
-                ) : (
-                  <Link href="/contact/" className="btn btn--ghost">
-                    Register interest
-                  </Link>
-                )}
+                <Link href="/request-a-quote/" className="btn btn--ghost">
+                  Get a quote
+                </Link>
               </div>
             ))}
           </div>
