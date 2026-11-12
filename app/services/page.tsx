@@ -32,7 +32,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/request-a-quote/" className="btn btn--ghost">
+                <Link href={c.quoteHref ?? "/request-a-quote/"} className="btn btn--ghost">
                   Get a quote
                 </Link>
               </div>
