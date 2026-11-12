@@ -97,7 +97,7 @@ export const serviceCategories = [
   },
   {
     title: "Managed maintenance",
-    text: "A structured monthly model for landlords, agents and serviced accommodation operators.",
+    text: "A structured model for landlords, agents and serviced accommodation operators.",
     items: [
       "Routine upkeep",
       "Turnkey service",
