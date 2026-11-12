@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
+import PropertyMot from "@/components/PropertyMot";
 import { ArrowIcon, CalendarIcon, PhoneIcon, ShieldIcon, SlidersIcon, UserIcon } from "@/components/Icons";
 import { advantages, audiences, site, trades } from "@/lib/site";
 
@@ -18,8 +19,11 @@ export default function Home() {
             and homeowners.
           </p>
           <div className="btn-row">
-            <Link href="/request-a-quote/" className="btn btn--solid">
-              Request a quote <ArrowIcon />
+            <a href="#property-mot" className="btn btn--solid">
+              Get an instant MOT quote <ArrowIcon />
+            </a>
+            <Link href="/request-a-quote/" className="btn btn--ghost">
+              Request a quote
             </Link>
             <a href={site.phoneHref} className="btn btn--ghost">
               <PhoneIcon /> Call {site.phone}
@@ -46,6 +50,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PropertyMot />
 
       <section className="section section--paper">
         <div className="container">

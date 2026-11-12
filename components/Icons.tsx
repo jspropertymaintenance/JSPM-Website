@@ -75,3 +75,31 @@ export const UserIcon = (p: P) => (
     <path d="M4 21a8 8 0 0 1 16 0" />
   </svg>
 );
+export const HomeIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M3 10.5 12 3l9 7.5" />
+    <path d="M5 9.5V21h14V9.5" />
+    <path d="M10 21v-6h4v6" />
+  </svg>
+);
+export const DropletIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z" />
+  </svg>
+);
+export const ZapIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+  </svg>
+);
+export const CameraIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+    <circle cx="12" cy="13" r="4" />
+  </svg>
+);
+export const WrenchIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z" />
+  </svg>
+);

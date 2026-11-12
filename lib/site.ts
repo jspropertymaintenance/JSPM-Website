@@ -25,6 +25,7 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "Home" },
+  { href: "/#property-mot", label: "Property MOT" },
   { href: "/about/", label: "About" },
   { href: "/process/", label: "Process" },
   { href: "/services/", label: "Services" },
@@ -98,6 +99,7 @@ export const serviceCategories = [
   {
     title: "Managed maintenance",
     text: "A structured model for landlords, agents and serviced accommodation operators.",
+    quoteHref: "/#property-mot",
     items: [
       "Routine upkeep",
       "Turnkey service",
