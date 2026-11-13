@@ -12,15 +12,18 @@ export default function Header() {
 
   useEffect(() => setOpen(false), [pathname]);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isActive = (item: (typeof nav)[number]) =>
+    item.href === "/"
+      ? pathname === "/"
+      : pathname.startsWith(item.href) ||
+        (item.match ?? []).some((m) => pathname.startsWith(m));
 
   return (
     <header className="header">
       <div className="container">
         <div className="header__inner">
           <Link href="/" className="brand" aria-label={`${site.name} home`}>
-            <img src="/logo-light.png" alt="" width={429} height={234} />
+            <img src="/logo-light.png" alt="JS Property Maintenance logo" width={429} height={234} />
           </Link>
 
           <nav className="nav" aria-label="Main">
@@ -29,7 +32,7 @@ export default function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    aria-current={isActive(item.href) ? "page" : undefined}
+                    aria-current={isActive(item) ? "page" : undefined}
                   >
                     {item.label}
                   </Link>
@@ -61,7 +64,7 @@ export default function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    aria-current={isActive(item.href) ? "page" : undefined}
+                    aria-current={isActive(item) ? "page" : undefined}
                   >
                     {item.label}
                   </Link>

@@ -23,15 +23,25 @@ export const site = {
   ],
 };
 
+// Header navigation. `match` lists extra paths that highlight the item.
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/#property-mot", label: "Property MOT" },
   { href: "/about/", label: "About" },
-  { href: "/process/", label: "Process" },
-  { href: "/services/", label: "Services" },
+  {
+    href: "/services/",
+    label: "Services",
+    match: ["/planned-maintenance", "/reactive-repairs", "/managed-maintenance"],
+  },
+  { href: "/#property-mot", label: "Property MOT" },
   { href: "/work-with-us/", label: "Work with us" },
-  { href: "/contact/", label: "Contact" },
 ];
+
+// Google rating shown on the About page. Update the figures here.
+export const googleReviews = {
+  rating: 4.6,
+  count: 20,
+  url: "https://share.google/rjRE9fvg329PH723Q",
+};
 
 export const audiences = [
   {
@@ -85,6 +95,7 @@ export const serviceCategories = [
       "Property refreshes",
       "End-of-tenancy projects",
     ],
+    href: "/planned-maintenance/",
   },
   {
     title: "Reactive repairs",
@@ -95,17 +106,18 @@ export const serviceCategories = [
       "Emergency repairs",
       "Urgent call-outs",
     ],
+    href: "/reactive-repairs/",
   },
   {
     title: "Managed maintenance",
     text: "A structured model for landlords, agents and serviced accommodation operators.",
-    quoteHref: "/#property-mot",
     items: [
       "Routine upkeep",
       "Turnkey service",
       "Compliance checks",
       "Full reporting and coordination",
     ],
+    href: "/managed-maintenance/",
   },
 ];
 
@@ -119,19 +131,4 @@ export const trades = [
   { title: "Flooring", text: "Supply and fit of laminate, vinyl, LVT and carpet to suit any budget." },
   { title: "General maintenance", text: "Minor repairs, resealing, blinds, taps, handles and fixture adjustments." },
   { title: "Cleaning", text: "Standard and deep cleans, end-of-tenancy refreshes and appliance cleaning." },
-];
-
-export const steps = [
-  {
-    title: "Send us your enquiry",
-    text: "Share the job details by phone, WhatsApp or our online form. We confirm the scope, visit if needed and give you a clear price.",
-  },
-  {
-    title: "We get to work",
-    text: "Once booked, we assign the right trade and keep you updated throughout: booking confirmation, regular updates and before-and-after photos.",
-  },
-  {
-    title: "Job complete",
-    text: "The work is finished, checked and logged. You get a job summary and invoice, with nothing left for you to chase.",
-  },
 ];

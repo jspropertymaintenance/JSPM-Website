@@ -3,11 +3,14 @@ import ContactDetails from "@/components/ContactDetails";
 import NetlifyForm from "@/components/NetlifyForm";
 import PageHero from "@/components/PageHero";
 import { quoteForm } from "@/lib/forms";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Request a quote",
-  description: "Request a property maintenance quote from JS Property Maintenance.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Request a quote | JS Property Maintenance",
+  description:
+    "Request a property maintenance quote from JS Property Maintenance.",
+  path: "/request-a-quote/",
+});
 
 export default function Page() {
   return (

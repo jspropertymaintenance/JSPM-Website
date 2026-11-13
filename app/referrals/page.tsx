@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import NetlifyForm from "@/components/NetlifyForm";
 import PageHero from "@/components/PageHero";
 import { referralForm } from "@/lib/forms";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Referrals",
-  description: "Refer a landlord, agent or neighbour to JS Property Maintenance and earn 10% commission when they accept a quote.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Referrals | JS Property Maintenance",
+  description:
+    "Refer a landlord, agent or neighbour to JS Property Maintenance and earn 10% commission when they accept a quote.",
+  path: "/referrals/",
+});
 
 const how = [
   { title: "Refer someone", text: "Send us their details using the form below. Let them know we'll be in touch." },

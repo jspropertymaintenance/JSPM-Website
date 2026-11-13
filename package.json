@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    
     "lint": "tsc --noEmit"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.9",
     "next": "^16.4.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

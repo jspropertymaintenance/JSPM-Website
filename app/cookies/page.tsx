@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Cookies" };
+export const metadata: Metadata = pageMeta({
+  title: "Cookies | JS Property Maintenance",
+  description:
+    "How the JS Property Maintenance website uses cookies.",
+  path: "/cookies/",
+});
 
 export default function Cookies() {
   return (

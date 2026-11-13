@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Thank you", robots: { index: false } };
+export const metadata: Metadata = pageMeta({
+  title: "Thank you | JS Property Maintenance",
+  description: "Thanks for getting in touch with JS Property Maintenance.",
+  path: "/thank-you/",
+  noindex: true,
+});
 
 export default function ThankYou() {
   return (
