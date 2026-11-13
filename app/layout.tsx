@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  verification: { google: "CtE8cb7F9_DyTvWL7XEm2exppfSCLAx-zWyXzvfRJEI" },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
