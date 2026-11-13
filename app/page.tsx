@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import PropertyMot from "@/components/PropertyMot";
 import { ArrowIcon, CalendarIcon, PhoneIcon, ShieldIcon, SlidersIcon, UserIcon } from "@/components/Icons";
 import { advantages, audiences, site, trades } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
+  title: "Property Maintenance & Property MOT | Teesside | JSPM",
+  description:
+    "Property MOT inspections, planned maintenance and reactive repairs for landlords and letting agents across Teesside and the North East.",
+  path: "/",
+});
 
 const advantageIcons = [CalendarIcon, SlidersIcon, ShieldIcon, UserIcon];
 

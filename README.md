@@ -23,3 +23,13 @@ npm run build   # static output in ./out
 The quote, contact, work-with-us and referral forms use **Netlify Forms**. They are declared in `public/__forms.html` (which Netlify scans at deploy time) and the React forms post to that file. If you add or rename a field in `lib/forms.ts`, update `public/__forms.html` to match.
 
 After the first deploy, open **Site configuration → Forms** in Netlify to enable form detection if it isn't on already. Then set up email notifications (for example to contact@jspm.uk) under **Forms → Form notifications**.
+
+### Subcontractor applications (Work with us)
+
+The application form uploads documents to a private **Netlify Blobs** store (`subcontractor-applications`) through two Netlify Functions in `netlify/functions/`. Files never get a public URL: the notification email contains signed download links that only work through the site's download function.
+
+Set this environment variable in Netlify (**Site configuration → Environment variables**) before using the form:
+
+- `SUBCONTRACTOR_LINK_SECRET`: a random string of at least 32 characters. Changing it invalidates every existing download link.
+
+Stored documents can be viewed or deleted in Netlify under **Blobs**.

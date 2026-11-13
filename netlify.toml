@@ -5,11 +5,28 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Subcontractor document uploads and private download links (Netlify Blobs)
+[functions]
+  directory = "netlify/functions"
+
 # Old site URL -> new quote page
 [[redirects]]
   from = "/getstarted"
   to = "/request-a-quote/"
   status = 301
+
+# The Process page was merged into About
+[[redirects]]
+  from = "/process"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/process/*"
+  to = "/about/"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/_next/static/*"

@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Privacy" };
+export const metadata: Metadata = pageMeta({
+  title: "Privacy | JS Property Maintenance",
+  description:
+    "How JS Property Maintenance collects, uses and stores the personal information you share with us.",
+  path: "/privacy/",
+});
 
 export default function Privacy() {
   return (

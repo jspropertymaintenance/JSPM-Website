@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { site } from "@/lib/site";
+import { googleReviews, site } from "@/lib/site";
 import "./globals.css";
 
 // Montserrat for headings and titles, Outfit for body text.
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.name,
     description: site.description,
-    images: [{ url: "/icon-512.png", width: 512, height: 512 }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${site.name} logo` }],
     locale: "en_GB",
   },
 };
@@ -37,16 +37,32 @@ export const viewport: Viewport = {
   themeColor: "#121212",
 };
 
+// LocalBusiness structured data, included on every page.
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
+  "@id": `${site.url}/#business`,
   name: site.name,
   url: site.url,
-  telephone: site.phone,
+  telephone: "+441642989867",
   email: site.email,
   logo: `${site.url}/icon-512.png`,
-  areaServed: site.areas,
-  openingHours: "Mo-Fr 08:00-16:00",
+  image: `${site.url}/og-image.png`,
+  description: site.description,
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Teesside" },
+    ...site.areas.map((name) => ({ "@type": "City", name })),
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "16:00",
+    },
+  ],
+  hasMap: googleReviews.url,
+  sameAs: [googleReviews.url],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

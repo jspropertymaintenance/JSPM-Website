@@ -4,11 +4,14 @@ import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import { CheckIcon } from "@/components/Icons";
 import { serviceCategories, trades } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Planned maintenance, reactive repairs and managed maintenance, plus plumbing, electrical, joinery, plastering, decorating, gardens, flooring and cleaning.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Property Maintenance Services | Teesside | JSPM",
+  description:
+    "Planned maintenance, reactive repairs and managed maintenance for landlords, letting agents and homeowners across Teesside and the North East.",
+  path: "/services/",
+});
 
 export default function Services() {
   return (
@@ -32,8 +35,8 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Link href={c.quoteHref ?? "/request-a-quote/"} className="btn btn--ghost">
-                  Get a quote
+                <Link href={c.href} className="btn btn--ghost">
+                  Learn more
                 </Link>
               </div>
             ))}

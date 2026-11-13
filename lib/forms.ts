@@ -66,30 +66,6 @@ export const contactForm: FormConfig = {
   ],
 };
 
-export const tradeForm: FormConfig = {
-  name: "work-with-us",
-  submitLabel: "Submit application",
-  successTitle: "Application received.",
-  successText: "Thanks for your interest. We'll be in touch about the next steps.",
-  fields: [
-    { name: "name", label: "Full name", required: true, autoComplete: "name", half: true },
-    { name: "business", label: "Business name", autoComplete: "organization", half: true },
-    { name: "email", label: "Email", type: "email", required: true, autoComplete: "email", half: true },
-    { name: "phone", label: "Phone", type: "tel", required: true, autoComplete: "tel", half: true },
-    { name: "trade", label: "Primary trade", type: "select", options: trades.map((t) => t.title).concat("Other"), required: true, half: true },
-    {
-      name: "experience",
-      label: "Years of experience",
-      type: "select",
-      options: ["Under 2 years", "2 to 5 years", "5 to 10 years", "10+ years"],
-      required: true,
-      half: true,
-    },
-    { name: "areas", label: "Areas you cover" },
-    { name: "message", label: "Tell us about your work, qualifications and insurance", type: "textarea" },
-  ],
-};
-
 export const referralForm: FormConfig = {
   name: "referral",
   submitLabel: "Send referral",
