@@ -1,6 +1,6 @@
 # JS Property Maintenance website
 
-Next.js (App Router) rebuild of [jspropertymaintenance.com](https://www.jspropertymaintenance.com/), exported as a fully static site and deployed on Netlify.
+Next.js (App Router) rebuild of [jspropertymaintenance.com](https://jspropertymaintenance.com/), exported as a fully static site and deployed on Netlify.
 
 - Theme: `#121212` (ink) and `#dcdcdc` (paper), defined as CSS variables in `app/globals.css`.
 - Logo: `public/logo-light.png` (for dark backgrounds) and `public/logo-dark.png` (for light backgrounds); favicons in `public/`.

@@ -1,7 +1,7 @@
 export const site = {
   name: "JS Property Maintenance",
   shortName: "JSPM",
-  url: "https://www.jspropertymaintenance.com",
+  url: "https://jspropertymaintenance.com",
   description:
     "One local team covering every trade: planned, reactive and managed maintenance for landlords, letting agents, serviced accommodation and homeowners across Teesside and the North East.",
   phone: "01642 989867",
