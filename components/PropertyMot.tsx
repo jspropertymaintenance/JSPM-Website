@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import {
   HMO_DEFAULT_ROOMS,
   MOT_FORM_NAME,
@@ -100,6 +100,34 @@ export default function PropertyMot() {
   const [regular, setRegular] = useState(false);
   const [d, setD] = useState<Details>(emptyDetails);
   const [status, setStatus] = useState<Status>("idle");
+
+  // Mobile price bar: shown while the form is on screen, hidden once the full
+  // quote panel scrolls into view. CSS hides it entirely on desktop.
+  const layoutRef = useRef<HTMLFormElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
+  const [formInView, setFormInView] = useState(false);
+  const [panelInView, setPanelInView] = useState(false);
+  const [barOpen, setBarOpen] = useState(false);
+  const showBar = formInView && !panelInView && status !== "sent";
+
+  useEffect(() => {
+    const form = layoutRef.current;
+    const panel = panelRef.current;
+    if (!form || !panel) return;
+    const observer = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.target === form) setFormInView(e.isIntersecting);
+        if (e.target === panel) setPanelInView(e.isIntersecting);
+      }
+    });
+    observer.observe(form);
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, [status]);
+
+  useEffect(() => {
+    if (!showBar) setBarOpen(false);
+  }, [showBar]);
 
   const set =
     (key: keyof Details) =>
@@ -217,6 +245,41 @@ export default function PropertyMot() {
     }
   }
 
+  const breakdown = (
+    <>
+      {addonLines.length > 0 && (
+        <ul className="mot__lines">
+          {addonLines.map((a) => (
+            <li key={a.id}>
+              <span>{"short" in a ? a.short : a.label}</span>
+              <span>{a.priceText}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {partnerLines.length > 0 && (
+        <div className="mot__partners">
+          <p className="mot__panel-label">Partner services</p>
+          <ul className="mot__lines">
+            {partnerLines.map((s) => (
+              <li key={s.id}>
+                <span>{s.label}</span>
+                <span>{s.priceText}</span>
+              </li>
+            ))}
+            <li className="mot__subtotal">
+              <span>Subtotal</span>
+              <span>from {money(partnerSubtotal)}</span>
+            </li>
+          </ul>
+        </div>
+      )}
+
+      {regular && <p className="mot__regular">We&apos;ll include details of our maintenance plans.</p>}
+    </>
+  );
+
   return (
     <section className="section section--line mot" id="property-mot">
       <div className="container">
@@ -263,7 +326,7 @@ export default function PropertyMot() {
             </div>
           </div>
         ) : (
-          <form className="mot__layout" name={MOT_FORM_NAME} onSubmit={onSubmit} noValidate>
+          <form className="mot__layout" name={MOT_FORM_NAME} onSubmit={onSubmit} noValidate ref={layoutRef}>
             <p className="hidden">
               <label>
                 Leave this field empty: <input name="bot-field" tabIndex={-1} autoComplete="off" />
@@ -483,45 +546,16 @@ export default function PropertyMot() {
               </fieldset>
             </div>
 
-            <aside className="mot__panel" aria-live="polite">
+            <aside className="mot__panel" aria-live="polite" ref={panelRef}>
               <p className="mot__panel-label">Your Property MOT guide price</p>
-              <p className="mot__price">{guideText}</p>
+              <p className="mot__price mot__pulse" key={guideText}>
+                {guideText}
+              </p>
               <p className="mot__selection">
                 {selectionLine || "Choose a visit and property type to see your price."}
               </p>
 
-              {addonLines.length > 0 && (
-                <ul className="mot__lines">
-                  {addonLines.map((a) => (
-                    <li key={a.id}>
-                      <span>{"short" in a ? a.short : a.label}</span>
-                      <span>{a.priceText}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {partnerLines.length > 0 && (
-                <div className="mot__partners">
-                  <p className="mot__panel-label">Partner services</p>
-                  <ul className="mot__lines">
-                    {partnerLines.map((s) => (
-                      <li key={s.id}>
-                        <span>{s.label}</span>
-                        <span>{s.priceText}</span>
-                      </li>
-                    ))}
-                    <li className="mot__subtotal">
-                      <span>Subtotal</span>
-                      <span>from {money(partnerSubtotal)}</span>
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {regular && (
-                <p className="mot__regular">We&apos;ll include details of our maintenance plans.</p>
-              )}
+              {breakdown}
 
               <ul className="mot__trust">
                 {["Fully insured", "Report within 24-48 hours", "Vetted trade partners"].map((t) => (
@@ -555,6 +589,45 @@ export default function PropertyMot() {
                 inaccessible.
               </p>
             </aside>
+
+            <div
+              className={`mot-bar${showBar ? " is-visible" : ""}${barOpen ? " is-open" : ""}`}
+              inert={!showBar}
+              aria-hidden={!showBar}
+            >
+              {barOpen && (
+                <div className="mot-bar__sheet" id="mot-bar-breakdown">
+                  {breakdown}
+                  {!addonLines.length && !partnerLines.length && !regular && (
+                    <p className="mot__selection">No extras added yet.</p>
+                  )}
+                </div>
+              )}
+              <div className="mot-bar__row">
+                <div className="mot-bar__summary" aria-live="polite">
+                  {property ? (
+                    <>
+                      <span className="mot-bar__price mot__pulse" key={guideText}>
+                        {guideText}
+                      </span>
+                      <span className="mot-bar__label">{selectionLine}</span>
+                    </>
+                  ) : (
+                    <span className="mot-bar__label">Choose a property type to see your price</span>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  className="mot-bar__toggle"
+                  aria-expanded={barOpen}
+                  aria-controls="mot-bar-breakdown"
+                  onClick={() => setBarOpen((o) => !o)}
+                >
+                  {barOpen ? "Hide" : "View"}
+                  <span aria-hidden="true">{barOpen ? "▾" : "▴"}</span>
+                </button>
+              </div>
+            </div>
           </form>
         )}
       </div>

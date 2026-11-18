@@ -1534,3 +1534,121 @@ p {
 .apply__nav .btn[type="submit"] {
   margin-left: auto;
 }
+
+/* Property MOT: mobile price bar and price-change pulse ------------- */
+
+.mot-bar {
+  display: none;
+}
+@media (max-width: 959px) {
+  .mot-bar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 0.75rem 16px calc(0.75rem + env(safe-area-inset-bottom));
+    background: var(--ink-soft);
+    border-top: 1px solid var(--ink-line);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
+    transform: translateY(110%);
+    transition: transform 0.25s ease;
+  }
+  .mot-bar.is-visible {
+    transform: translateY(0);
+  }
+  /* Keep focused fields clear of the bar */
+  .mot__steps input,
+  .mot__steps select,
+  .mot__steps textarea {
+    scroll-margin-bottom: 110px;
+  }
+}
+.mot-bar__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.mot-bar__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-width: 0;
+}
+.mot-bar__price {
+  flex: none;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.mot-bar__label {
+  font-size: 0.88rem;
+  color: var(--muted-on-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mot-bar__toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--paper);
+  background: transparent;
+  color: var(--paper);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.mot-bar__sheet {
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ink-line);
+}
+.mot-bar__sheet .mot__lines:first-child {
+  margin-top: 0;
+}
+.mot-bar__sheet .mot__partners:first-child {
+  margin-top: 0;
+}
+.mot-bar__sheet > .mot__selection {
+  margin: 0;
+}
+
+.mot__pulse {
+  animation: mot-pulse 0.6s ease;
+}
+@keyframes mot-pulse {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.06);
+    text-shadow: 0 0 18px rgba(220, 220, 220, 0.45);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.mot-bar__price.mot__pulse,
+.mot__price.mot__pulse {
+  display: inline-block;
+  transform-origin: left center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mot__pulse {
+    animation: none;
+  }
+  .mot-bar {
+    transition: none;
+  }
+}
