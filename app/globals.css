@@ -1652,3 +1652,211 @@ p {
     transition: none;
   }
 }
+
+/* Privacy policy ----------------------------------------------------- */
+
+.policy {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 960px) {
+  .policy {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 4rem;
+  }
+  .policy__toc {
+    position: sticky;
+    top: 100px;
+  }
+}
+.policy__toc details {
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius);
+  background: var(--ink-soft);
+  padding: 1rem 1.25rem;
+}
+.policy__toc summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-on-ink);
+}
+.policy__toc ol {
+  margin: 0.9rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+}
+.policy__toc a {
+  color: var(--muted-on-ink);
+  text-decoration: none;
+}
+.policy__toc a:hover {
+  color: var(--paper);
+  text-decoration: underline;
+}
+
+.policy__body {
+  max-width: 76ch;
+  color: rgba(220, 220, 220, 0.85);
+}
+.policy__intro {
+  font-size: 1.15rem;
+  color: var(--paper);
+  margin-bottom: 2.5rem;
+}
+.policy__section {
+  scroll-margin-top: 96px;
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--ink-line);
+}
+.policy__section h2 {
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  margin-bottom: 1rem;
+  color: var(--paper);
+}
+.policy__num {
+  color: var(--muted-on-ink);
+}
+.policy__section h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--paper);
+  margin: 1.75rem 0 0.6rem;
+}
+.policy__section h3:first-child {
+  margin-top: 0;
+}
+.policy__section ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.45rem;
+}
+.policy__section ul ul {
+  margin: 0.5rem 0 0;
+}
+.policy__section strong {
+  color: var(--paper);
+}
+.policy__section a {
+  color: var(--paper);
+}
+.policy__note {
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--paper);
+  background: rgba(220, 220, 220, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+.policy__contact {
+  display: grid;
+  gap: 0;
+  margin: 1.25rem 0 0;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius);
+  background: var(--ink-soft);
+}
+.policy__contact > div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.85rem 1.1rem;
+}
+.policy__contact > div + div {
+  border-top: 1px solid var(--ink-line);
+}
+.policy__contact dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-on-ink);
+}
+.policy__contact dd {
+  margin: 0;
+  color: var(--paper);
+}
+@media (min-width: 640px) {
+  .policy__contact > div {
+    grid-template-columns: 110px 1fr;
+    align-items: baseline;
+  }
+}
+.policy__callout {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius);
+  background: var(--ink-soft);
+}
+.policy__callout p {
+  margin: 0;
+}
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+.policy-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-on-ink);
+  padding: 0 1rem 0.75rem 0;
+  border-bottom: 1px solid var(--ink-line);
+}
+.policy-table td {
+  vertical-align: top;
+  padding: 0.9rem 1rem 0.9rem 0;
+  border-bottom: 1px solid var(--ink-line);
+}
+.policy-table td:first-child {
+  color: var(--paper);
+  font-weight: 500;
+  width: 46%;
+}
+/* On phones each row becomes a small stacked block */
+@media (max-width: 639px) {
+  .policy-table thead {
+    display: none;
+  }
+  .policy-table,
+  .policy-table tbody,
+  .policy-table tr,
+  .policy-table td {
+    display: block;
+    width: 100%;
+  }
+  .policy-table tr {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--ink-line);
+  }
+  .policy-table td {
+    padding: 0;
+    border: 0;
+  }
+  .policy-table td:first-child {
+    width: 100%;
+    margin-bottom: 0.4rem;
+  }
+  .policy-table td + td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-on-ink);
+    margin-bottom: 0.15rem;
+  }
+}
