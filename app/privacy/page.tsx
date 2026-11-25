@@ -13,8 +13,6 @@ export const metadata: Metadata = pageMeta({
 
 const LAST_UPDATED = "25.11.2026";
 const ADDRESS = "Brooklime Avenue, Stockton-on-Tees, TS18 3RS";
-// Card payment provider named in section 4. Leave empty to hide that line.
-const PAYMENT_PROVIDER = "";
 
 const contents = [
   { id: "who-we-are", title: "Who we are" },
@@ -213,7 +211,7 @@ export default function Privacy() {
 
               <h3>If you visit our website:</h3>
               <p>
-                Information about how you use the site, collected by cookies. See our{" "}
+                We do not currently use cookies on this website. See our{" "}
                 <Link href="/cookies/">Cookies page</Link>.
               </p>
             </Section>
@@ -242,7 +240,6 @@ export default function Privacy() {
                     <li>Powered Now (job management, quotes, reports and invoices)</li>
                     <li>Google Workspace (email and secure file storage)</li>
                     <li>WhatsApp (messages with clients, tenants and trades)</li>
-                    {PAYMENT_PROVIDER && <li>{PAYMENT_PROVIDER} (card payments)</li>}
                   </ul>
                 </li>
                 <li>
